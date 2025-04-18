@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="inputarea">
+        <textarea id="input"></textarea>
+      </div>
+      <div class="count"></div>
+      <div class="max">
+        <p>🚫🚫 Maximum character reached</p>
+      </div>
+    </div>
+
+    <script>
+      const input = document.getElementById("input");
+
+      const count = document.querySelector(".count");
+
+      const maxbox = document.querySelector(".max");
+
+      const cheklenght = () => {
+        let inputval = input.value.trim();
+
+        let string_Wspace = inputval.split(" ").join("").length;
+
+        if (string_Wspace <= 100) {
+          count.innerHTML = `<p> Characters : ${string_Wspace}</p>`;
+        }
+
+        if (string_Wspace > 100) {
+          maxbox.style.display = "block";
+        } else {
+          maxbox.style.display = "none";
+        }
+      };
+
+      input.addEventListener("input", () => {
+        cheklenght();
+      });
+    </script>
+  </body>
+</html>
